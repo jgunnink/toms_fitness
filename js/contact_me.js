@@ -21,14 +21,14 @@ $(function() {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
             $.ajax({
-                // url: "", TODO: Not implemented
-                type: "POST",
+                url: "https://formspree.io/jgunnink@gmail.com",
+                method: "POST",
                 data: {
                     name: name,
                     phone: phone,
-                    email: email,
-                    message: message
+                    email: email
                 },
+                dataType:"json",
                 cache: false,
                 success: function() {
                     // Enable button & show success message
@@ -37,7 +37,7 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>Thanks, " + firstName + ", your details have been registered!</strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
